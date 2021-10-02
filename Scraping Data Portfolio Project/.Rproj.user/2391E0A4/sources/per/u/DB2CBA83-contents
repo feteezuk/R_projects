@@ -1,0 +1,27 @@
+library(rvest)
+
+query <- "data Analyst"
+loc="San Francisco, CA"
+
+session <- session("https://www.indeed.com/")
+
+form<-html_form(session)[[1]]
+filled_form<- html_form_set(form, q=query, l=loc)
+
+
+
+
+
+session1<-session_submit(session, filled_form)
+
+salary_link <- session1 %>%
+  html_nodes(".tapItem") %>%
+  html_attr("href")
+
+salary_link <- paste(session, salary_link, sep="")
+
+salary_link
+
+
+
+
