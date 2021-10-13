@@ -17,10 +17,14 @@ str(data)
 
 #week 4
 # devin moss or singletary
+table(!is.na(data$receiver))
+
+data %>%
+  filter(data$receiver=='Z.Moss')
 
 data %>% 
-  filter( season_type == 'REG', rush == 1 | pass == 1, !is.na(rushing_yards), !is.na(yards_gained) ) %>%
-  group_by(rusher) %>%
+  filter( rusher=='D.Singletary' | receiver=='Z.Moss', season_type == 'REG', rush == 1 | pass == 1, !is.na(rushing_yards), !is.na(yards_gained) ) %>%
+  group_by(rusher,receiver) %>%
   select(posteam,rusher_player_name, yards_gained, rushing_yards,rush_touchdown ) %>%
   summarize(
     yards_gained = mean(yards_gained),
@@ -28,8 +32,22 @@ data %>%
     rush_touchdown = sum(rush_touchdown),
     plays =n()
   )%>%
-  arrange(-rush_touchdown) %>%
+  arrange(-plays) %>%
   filter(plays> 100) %>%
+  head(20)
+
+#Z.Moss
+
+data %>% 
+  filter( receiver=='Z.Moss', season_type == 'REG', rush == 1 | pass == 1, !is.na(yards_gained) ) %>%
+  group_by(receiver) %>%
+  select(posteam,receiver, yards_gained, touchdown ) %>%
+  summarize(
+    yards_gained = sum(yards_gained),
+    touchdown=sum(touchdown),
+    plays =n()
+  )%>%
+  arrange(-plays) %>%
   head(20)
 
 #check out mattisons stats
