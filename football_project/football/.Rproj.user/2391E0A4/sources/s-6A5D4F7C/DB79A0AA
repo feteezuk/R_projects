@@ -3,7 +3,7 @@
     "path": "~/Desktop/Rprojects/football_project/football/football.R",
     "project_path": "football.R",
     "type": "r_source",
-    "hash": "1445934973",
+    "hash": "1699193583",
     "contents": "",
     "dirty": false,
     "created": 1629750373175.0,
@@ -13,15 +13,15 @@
         "tempName": "Untitled1",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "33,0",
-        "scrollLine": "20"
+        "cursorPosition": "84,15",
+        "scrollLine": "80"
     },
     "folds": "",
-    "lastKnownWriteTime": 1629997485,
+    "lastKnownWriteTime": 1634138587,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1629997485,
+    "last_content_update": 1634138587142,
     "read_only": false,
     "read_only_alternatives": []
 }
